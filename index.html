@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panda Pay | Cashless Matatu Payments</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    :root {
+      --panda-black: #121212;
+      --panda-green: #00C853;
+      --panda-orange: #FF6D00;
+      --panda-light: #F8F9FA;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      color: #333;
+    }
+
+    .navbar {
+      background: var(--panda-black) !important;
+      padding: 1rem 0;
+    }
+
+    .navbar-brand {
+      font-weight: 800;
+      font-size: 1.6rem;
+      color: white !important;
+    }
+
+    .navbar-brand span {
+      color: var(--panda-green);
+    }
+
+    .btn-panda {
+      background: var(--panda-green);
+      color: white;
+      border: none;
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: 50px;
+      transition: all 0.3s;
+    }
+
+    .btn-panda:hover {
+      background: #00a844;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline-panda {
+      border: 2px solid white;
+      color: white;
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: 50px;
+    }
+
+    .btn-outline-panda:hover {
+      background: white;
+      color: var(--panda-black);
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #121212 0%, #1e1e1e 100%);
+      color: white;
+      padding: 120px 0 100px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(0,200,83,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      opacity: 0.9;
+    }
+
+    .feature-card {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      height: 100%;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      transition: all 0.3s;
+      border: 1px solid #eee;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      background: rgba(0,200,83,0.1);
+      color: var(--panda-green);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .section-title {
+      font-weight: 800;
+      font-size: 2.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      color: #666;
+      font-size: 1.15rem;
+      max-width: 600px;
+      margin: 0 auto 3rem;
+    }
+
+    .how-step {
+      text-align: center;
+      position: relative;
+    }
+
+    .step-number {
+      width: 50px;
+      height: 50px;
+      background: var(--panda-green);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.3rem;
+      margin: 0 auto 1.2rem;
+    }
+
+    .payment-demo {
+      background: var(--panda-black);
+      color: white;
+      border-radius: 24px;
+      padding: 3rem;
+    }
+
+    .demo-phone {
+      background: #1e1e1e;
+      border-radius: 30px;
+      padding: 1.5rem;
+      max-width: 280px;
+      margin: 0 auto;
+      border: 8px solid #333;
+    }
+
+    .testimonial-card {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+    }
+
+    .footer {
+      background: var(--panda-black);
+      color: #ccc;
+      padding: 4rem 0 2rem;
+    }
+
+    .footer a {
+      color: #aaa;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      color: var(--panda-green);
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Panda<span>Pay</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#how">How it Works</a></li>
+          <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+          <li class="nav-item"><a class="nav-link" href="#demo">Pay Demo</a></li>
+          <li class="nav-item ms-lg-3">
+            <a href="#download" class="btn btn-panda">Get Started</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container position-relative">
+      <div class="row align-items-center">
+        <div class="col-lg-7">
+          <h1 class="mb-4">Pay your matatu fare in seconds.<br>No cash. No stress.</h1>
+          <p class="mb-5">Panda Pay connects passengers and matatu drivers for fast, secure, and transparent cashless payments across Kenya.</p>
+          <div class="d-flex flex-wrap gap-3">
+            <a href="#download" class="btn btn-panda">Download App</a>
+            <a href="#how" class="btn btn-outline-panda">See How it Works</a>
+          </div>
+          <div class="mt-5 d-flex gap-4 text-white-50 small">
+            <div><i class="bi bi-shield-check me-1"></i> Secure M-Pesa</div>
+            <div><i class="bi bi-lightning-charge me-1"></i> Instant Confirmation</div>
+            <div><i class="bi bi-phone me-1"></i> Works Offline</div>
+          </div>
+        </div>
+        <div class="col-lg-5 d-none d-lg-block text-center">
+          <div class="demo-phone mt-4">
+            <div class="text-start mb-3">
+              <small class="text-success">● Connected</small>
+              <h5 class="mt-2 mb-1">KBS 123A</h5>
+              <small class="text-muted">Nairobi → Rongai</small>
+            </div>
+            <div class="bg-dark rounded-3 p-3 mb-3">
+              <div class="d-flex justify-content-between">
+                <span>Fare</span>
+                <strong class="text-success">KSh 100</strong>
+              </div>
+            </div>
+            <button class="btn btn-success w-100 rounded-pill py-2">Pay with M-Pesa</button>
+            <div class="text-center mt-3 small text-muted">Scan QR or enter till number</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it Works -->
+  <section id="how" class="py-5 bg-light">
+    <div class="container py-5">
+      <div class="text-center">
+        <h2 class="section-title">How Panda Pay Works</h2>
+        <p class="section-subtitle">Simple for passengers. Powerful for drivers & SACCOs.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="how-step">
+            <div class="step-number">1</div>
+            <h5>Board the Matatu</h5>
+            <p class="text-muted">Find the Panda Pay QR code or till number displayed inside the vehicle.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="how-step">
+            <div class="step-number">2</div>
+            <h5>Pay Instantly</h5>
+            <p class="text-muted">Scan the QR or enter the till number and pay using M-Pesa or Airtel Money.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="how-step">
+            <div class="step-number">3</div>
+            <h5>Ride Confirmed</h5>
+            <p class="text-muted">Driver sees payment instantly. You get a digital receipt via SMS.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="py-5">
+    <div class="container py-5">
+      <div class="text-center">
+        <h2 class="section-title">Built for Everyone on the Road</h2>
+        <p class="section-subtitle">Whether you're a passenger, driver, or SACCO manager — Panda Pay has you covered.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="bi bi-phone"></i></div>
+            <h5>Cashless Fares</h5>
+            <p class="text-muted mb-0">Pay with M-Pesa, Airtel Money or bank cards. No more searching for change.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="bi bi-qr-code-scan"></i></div>
+            <h5>QR & Till Numbers</h5>
+            <p class="text-muted mb-0">Scan a unique QR or enter the matatu’s till number in seconds.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="bi bi-graph-up"></i></div>
+            <h5>Real-time Tracking</h5>
+            <p class="text-muted mb-0">Drivers and SACCOs see every payment instantly with full transparency.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="bi bi-receipt"></i></div>
+            <h5>Digital Receipts</h5>
+            <p class="text-muted mb-0">Automatic SMS receipts for every trip. Perfect for expense tracking.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Payment Demo -->
+  <section id="demo" class="py-5 bg-light">
+    <div class="container py-5">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <h2 class="section-title text-start">Experience the Payment Flow</h2>
+          <p class="text-muted mb-4">See how easy it is to pay your fare without carrying cash. Designed for speed and reliability even in areas with weak network.</p>
+          <ul class="list-unstyled">
+            <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i> Instant M-Pesa confirmation</li>
+            <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i> Works offline via USSD fallback</li>
+            <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i> Driver dashboard updates in real time</li>
+            <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i> Full trip history for passengers</li>
+          </ul>
+        </div>
+        <div class="col-lg-6">
+          <div class="payment-demo text-center">
+            <h4 class="mb-4">Sample Matatu Payment</h4>
+            <div class="demo-phone">
+              <div class="text-start mb-3">
+                <small class="text-success">● Live</small>
+                <h5 class="mt-2">KCE 456B</h5>
+                <small class="text-muted">CBD → Westlands</small>
+              </div>
+              <div class="bg-black rounded-3 p-3 mb-3 text-start">
+                <div class="d-flex justify-content-between mb-2">
+                  <span>Route Fare</span>
+                  <strong>KSh 70</strong>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <span>Status</span>
+                  <span class="text-success">Ready to Pay</span>
+                </div>
+              </div>
+              <button class="btn btn-success w-100 rounded-pill py-2 mb-2">Confirm & Pay</button>
+              <small class="text-muted">Powered by M-Pesa & Panda Pay</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-5">
+    <div class="container py-5">
+      <div class="text-center mb-5">
+        <h2 class="section-title">Loved by Drivers & Passengers</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="testimonial-card">
+            <p class="mb-4">“Since we started using Panda Pay, no more arguments about change. Payments are clean and the SACCO can see everything.”</p>
+            <div class="d-flex align-items-center">
+              <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width:48px;height:48px;">JM</div>
+              <div>
+                <strong>James M.</strong><br>
+                <small class="text-muted">Driver, Super Metro</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial-card">
+            <p class="mb-4">“I love that I can just scan and go. No more fumbling for coins when I’m late for work.”</p>
+            <div class="d-flex align-items-center">
+              <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width:48px;height:48px;">AW</div>
+              <div>
+                <strong>Amina W.</strong><br>
+                <small class="text-muted">Daily Commuter</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial-card">
+            <p class="mb-4">“The transparency has reduced conflict between owners and crew. Highly recommended for every SACCO.”</p>
+            <div class="d-flex align-items-center">
+              <div class="bg-warning text-dark rounded-circle d-flex align-items-center justify-content-center me-3" style="width:48px;height:48px;">PK</div>
+              <div>
+                <strong>Peter K.</strong><br>
+                <small class="text-muted">SACCO Chairman</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section id="download" class="py-5" style="background: linear-gradient(135deg, #00C853, #009624);">
+    <div class="container py-5 text-center text-white">
+      <h2 class="display-5 fw-bold mb-3">Ready to go cashless?</h2>
+      <p class="lead mb-4">Join thousands of drivers and passengers already using Panda Pay across Nairobi and beyond.</p>
+      <div class="d-flex flex-wrap justify-content-center gap-3">
+        <a href="#" class="btn btn-light btn-lg px-4 rounded-pill">Download for Android</a>
+        <a href="#" class="btn btn-outline-light btn-lg px-4 rounded-pill">Register as Driver</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 mb-4">
+          <h4 class="text-white mb-3">Panda<span style="color:#00C853">Pay</span></h4>
+          <p>Making public transport payments simple, transparent and secure for every Kenyan.</p>
+        </div>
+        <div class="col-6 col-md-2 mb-4">
+          <h6 class="text-white">Product</h6>
+          <ul class="list-unstyled">
+            <li><a href="#how">How it Works</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#demo">Demo</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md-2 mb-4">
+          <h6 class="text-white">Company</h6>
+          <ul class="list-unstyled">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md-2 mb-4">
+          <h6 class="text-white">Support</h6>
+          <ul class="list-unstyled">
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr class="border-secondary my-4">
+      <div class="text-center text-muted small">
+        © 2025 Panda Pay. All rights reserved. Built for Kenya’s roads.
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
