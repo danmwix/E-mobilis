@@ -3,145 +3,205 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Panda Pay | Cashless Matatu Payments</title>
+  <title>Panda Pay — Cashless Matatu Payments</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --panda-black: #121212;
-      --panda-green: #00C853;
-      --panda-orange: #FF6D00;
-      --panda-light: #F8F9FA;
+      --panda-black: #0f0f0f;
+      --panda-dark: #1a1a1a;
+      --panda-green: #00c853;
+      --panda-green-dark: #00a844;
+      --panda-light: #f7f8fa;
+      --panda-gray: #6b7280;
+    }
+
+    * {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
     }
 
     body {
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      color: #333;
+      color: #1f2937;
+      background: #fff;
     }
 
+    /* ========== NAVBAR ========== */
     .navbar {
-      background: var(--panda-black) !important;
-      padding: 1rem 0;
+      background: rgba(15, 15, 15, 0.92) !important;
+      backdrop-filter: blur(12px);
+      padding: 0.85rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
     }
-
     .navbar-brand {
       font-weight: 800;
-      font-size: 1.6rem;
+      font-size: 1.55rem;
+      letter-spacing: -0.5px;
       color: white !important;
     }
-
     .navbar-brand span {
       color: var(--panda-green);
     }
-
+    .nav-link {
+      color: rgba(255,255,255,0.75) !important;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+    .nav-link:hover {
+      color: white !important;
+    }
     .btn-panda {
       background: var(--panda-green);
-      color: white;
+      color: #fff;
       border: none;
       font-weight: 600;
-      padding: 12px 28px;
+      padding: 0.7rem 1.6rem;
       border-radius: 50px;
-      transition: all 0.3s;
+      transition: all 0.25s ease;
     }
-
     .btn-panda:hover {
-      background: #00a844;
-      color: white;
+      background: var(--panda-green-dark);
+      color: #fff;
       transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,200,83,0.25);
     }
-
-    .btn-outline-panda {
-      border: 2px solid white;
+    .btn-outline-light-custom {
+      border: 1.5px solid rgba(255,255,255,0.4);
       color: white;
       font-weight: 600;
-      padding: 12px 28px;
+      padding: 0.7rem 1.6rem;
       border-radius: 50px;
+      transition: all 0.25s;
     }
-
-    .btn-outline-panda:hover {
+    .btn-outline-light-custom:hover {
       background: white;
       color: var(--panda-black);
+      border-color: white;
     }
 
+    /* ========== HERO ========== */
     .hero {
-      background: linear-gradient(135deg, #121212 0%, #1e1e1e 100%);
+      background: var(--panda-black);
       color: white;
-      padding: 120px 0 100px;
+      padding: 140px 0 100px;
       position: relative;
       overflow: hidden;
     }
-
     .hero::before {
       content: '';
       position: absolute;
-      top: -50%;
-      right: -20%;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(0,200,83,0.15) 0%, transparent 70%);
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(0,200,83,0.12) 0%, transparent 65%);
+      top: -200px;
+      right: -150px;
       border-radius: 50%;
     }
-
-    .hero h1 {
-      font-size: 3.2rem;
-      font-weight: 800;
-      line-height: 1.2;
-    }
-
-    .hero p {
-      font-size: 1.25rem;
-      opacity: 0.9;
-    }
-
-    .feature-card {
-      background: white;
-      border-radius: 16px;
-      padding: 2rem;
-      height: 100%;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-      transition: all 0.3s;
-      border: 1px solid #eee;
-    }
-
-    .feature-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-    }
-
-    .feature-icon {
-      width: 60px;
-      height: 60px;
-      background: rgba(0,200,83,0.1);
-      color: var(--panda-green);
-      border-radius: 16px;
-      display: flex;
+    .hero-badge {
+      display: inline-flex;
       align-items: center;
-      justify-content: center;
-      font-size: 1.8rem;
-      margin-bottom: 1.2rem;
+      gap: 8px;
+      background: rgba(0,200,83,0.12);
+      color: var(--panda-green);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 50px;
+      margin-bottom: 1.5rem;
     }
-
-    .section-title {
+    .hero h1 {
+      font-size: 3.4rem;
       font-weight: 800;
-      font-size: 2.4rem;
-      margin-bottom: 1rem;
+      line-height: 1.15;
+      letter-spacing: -1.2px;
+      margin-bottom: 1.4rem;
+    }
+    .hero p.lead {
+      font-size: 1.2rem;
+      color: rgba(255,255,255,0.75);
+      max-width: 520px;
+      line-height: 1.6;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 2.5rem;
+      margin-top: 2.8rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .hero-stat strong {
+      display: block;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: white;
+    }
+    .hero-stat span {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.55);
     }
 
-    .section-subtitle {
-      color: #666;
-      font-size: 1.15rem;
-      max-width: 600px;
-      margin: 0 auto 3rem;
-    }
-
-    .how-step {
-      text-align: center;
+    /* Phone mockup */
+    .phone-mockup {
+      background: #1c1c1c;
+      border-radius: 36px;
+      padding: 12px;
+      border: 6px solid #2a2a2a;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+      max-width: 290px;
+      margin: 0 auto;
       position: relative;
     }
+    .phone-notch {
+      width: 90px;
+      height: 22px;
+      background: #0f0f0f;
+      border-radius: 0 0 14px 14px;
+      margin: 0 auto 14px;
+    }
+    .phone-screen {
+      background: #121212;
+      border-radius: 24px;
+      padding: 1.4rem;
+      min-height: 420px;
+    }
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--panda-green);
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 6px;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
 
-    .step-number {
-      width: 50px;
-      height: 50px;
+    /* ========== SECTIONS ========== */
+    .section-title {
+      font-weight: 800;
+      font-size: 2.5rem;
+      letter-spacing: -0.8px;
+      margin-bottom: 0.8rem;
+    }
+    .section-sub {
+      color: var(--panda-gray);
+      font-size: 1.1rem;
+      max-width: 560px;
+      margin: 0 auto 3.5rem;
+    }
+
+    /* How it works */
+    .how-step {
+      position: relative;
+      text-align: center;
+      padding: 0 1rem;
+    }
+    .step-circle {
+      width: 64px;
+      height: 64px;
       background: var(--panda-green);
       color: white;
       border-radius: 50%;
@@ -149,224 +209,403 @@
       align-items: center;
       justify-content: center;
       font-weight: 700;
-      font-size: 1.3rem;
-      margin: 0 auto 1.2rem;
+      font-size: 1.4rem;
+      margin: 0 auto 1.4rem;
+      box-shadow: 0 10px 25px rgba(0,200,83,0.3);
+      position: relative;
+      z-index: 2;
+    }
+    .how-connector {
+      position: absolute;
+      top: 32px;
+      left: 50%;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--panda-green), #e5e7eb);
+      z-index: 1;
+    }
+    @media (max-width: 767px) {
+      .how-connector { display: none; }
     }
 
-    .payment-demo {
-      background: var(--panda-black);
-      color: white;
-      border-radius: 24px;
-      padding: 3rem;
-    }
-
-    .demo-phone {
-      background: #1e1e1e;
-      border-radius: 30px;
-      padding: 1.5rem;
-      max-width: 280px;
-      margin: 0 auto;
-      border: 8px solid #333;
-    }
-
-    .testimonial-card {
+    /* Feature cards */
+    .feature-card {
       background: white;
-      border-radius: 16px;
+      border: 1px solid #eef0f3;
+      border-radius: 20px;
       padding: 2rem;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+      height: 100%;
+      transition: all 0.3s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+      border-color: #d1fae5;
+    }
+    .feature-icon {
+      width: 52px;
+      height: 52px;
+      background: #ecfdf5;
+      color: var(--panda-green);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.3rem;
     }
 
+    /* Audience cards */
+    .audience-card {
+      border-radius: 24px;
+      padding: 2.5rem;
+      height: 100%;
+      transition: all 0.3s;
+    }
+    .audience-card.passengers {
+      background: linear-gradient(145deg, #ecfdf5, #d1fae5);
+    }
+    .audience-card.drivers {
+      background: linear-gradient(145deg, #f0f9ff, #e0f2fe);
+    }
+    .audience-card.saccos {
+      background: linear-gradient(145deg, #fef3c7, #fde68a);
+    }
+
+    /* Demo section */
+    .demo-section {
+      background: var(--panda-dark);
+      color: white;
+      border-radius: 32px;
+      padding: 3.5rem;
+      overflow: hidden;
+    }
+
+    /* Testimonials */
+    .testimonial {
+      background: white;
+      border: 1px solid #eef0f3;
+      border-radius: 20px;
+      padding: 2rem;
+      height: 100%;
+    }
+    .avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: white;
+      font-size: 0.95rem;
+    }
+
+    /* CTA */
+    .cta-section {
+      background: linear-gradient(135deg, #00c853 0%, #009624 100%);
+      border-radius: 32px;
+      padding: 4rem 2rem;
+      text-align: center;
+      color: white;
+    }
+
+    /* Footer */
     .footer {
       background: var(--panda-black);
-      color: #ccc;
-      padding: 4rem 0 2rem;
+      color: #9ca3af;
+      padding: 5rem 0 2.5rem;
     }
-
     .footer a {
-      color: #aaa;
+      color: #9ca3af;
       text-decoration: none;
+      transition: color 0.2s;
     }
-
     .footer a:hover {
       color: var(--panda-green);
     }
+    .footer h6 {
+      color: white;
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+    }
 
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2.3rem;
-      }
+    @media (max-width: 991px) {
+      .hero h1 { font-size: 2.5rem; }
+      .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
       <a class="navbar-brand" href="#">Panda<span>Pay</span></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto align-items-lg-center">
-          <li class="nav-item"><a class="nav-link" href="#how">How it Works</a></li>
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+          <li class="nav-item"><a class="nav-link" href="#how">How it works</a></li>
           <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
-          <li class="nav-item"><a class="nav-link" href="#demo">Pay Demo</a></li>
+          <li class="nav-item"><a class="nav-link" href="#who">Who it’s for</a></li>
+          <li class="nav-item"><a class="nav-link" href="#demo">Live demo</a></li>
           <li class="nav-item ms-lg-3">
-            <a href="#download" class="btn btn-panda">Get Started</a>
+            <a href="#download" class="btn btn-panda btn-sm">Get the App</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- HERO -->
   <section class="hero">
     <div class="container position-relative">
       <div class="row align-items-center">
-        <div class="col-lg-7">
-          <h1 class="mb-4">Pay your matatu fare in seconds.<br>No cash. No stress.</h1>
-          <p class="mb-5">Panda Pay connects passengers and matatu drivers for fast, secure, and transparent cashless payments across Kenya.</p>
+        <div class="col-lg-6">
+          <div class="hero-badge">
+            <i class="bi bi-lightning-charge-fill"></i>
+            Now live in Nairobi & beyond
+          </div>
+          <h1>Pay your matatu<br>fare in seconds.</h1>
+          <p class="lead mb-4">
+            No more fumbling for change. Panda Pay lets passengers pay instantly with M-Pesa while drivers and SACCOs get real-time transparency.
+          </p>
           <div class="d-flex flex-wrap gap-3">
             <a href="#download" class="btn btn-panda">Download App</a>
-            <a href="#how" class="btn btn-outline-panda">See How it Works</a>
+            <a href="#how" class="btn btn-outline-light-custom">See how it works</a>
           </div>
-          <div class="mt-5 d-flex gap-4 text-white-50 small">
-            <div><i class="bi bi-shield-check me-1"></i> Secure M-Pesa</div>
-            <div><i class="bi bi-lightning-charge me-1"></i> Instant Confirmation</div>
-            <div><i class="bi bi-phone me-1"></i> Works Offline</div>
+
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <strong>12k+</strong>
+              <span>Daily rides</span>
+            </div>
+            <div class="hero-stat">
+              <strong>850+</strong>
+              <span>Active matatus</span>
+            </div>
+            <div class="hero-stat">
+              <strong>98%</strong>
+              <span>Success rate</span>
+            </div>
           </div>
         </div>
-        <div class="col-lg-5 d-none d-lg-block text-center">
-          <div class="demo-phone mt-4">
-            <div class="text-start mb-3">
-              <small class="text-success">● Connected</small>
-              <h5 class="mt-2 mb-1">KBS 123A</h5>
-              <small class="text-muted">Nairobi → Rongai</small>
-            </div>
-            <div class="bg-dark rounded-3 p-3 mb-3">
-              <div class="d-flex justify-content-between">
-                <span>Fare</span>
-                <strong class="text-success">KSh 100</strong>
+
+        <div class="col-lg-6 d-none d-lg-block">
+          <div class="phone-mockup">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <div>
+                  <small class="text-success"><span class="status-dot"></span>Connected</small>
+                  <h5 class="mb-0 mt-1 text-white">KBS 123A</h5>
+                  <small class="text-secondary">Nairobi → Rongai</small>
+                </div>
+                <i class="bi bi-qr-code text-white fs-3"></i>
+              </div>
+
+              <div class="bg-black rounded-4 p-3 mb-3">
+                <div class="d-flex justify-content-between mb-2">
+                  <span class="text-secondary">Fare</span>
+                  <strong class="text-success fs-5">KSh 100</strong>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <span class="text-secondary">Status</span>
+                  <span class="text-success">Ready</span>
+                </div>
+              </div>
+
+              <button class="btn btn-success w-100 rounded-pill py-2 fw-semibold mb-2">
+                Pay with M-Pesa
+              </button>
+              <div class="text-center">
+                <small class="text-secondary">or enter till number</small>
+              </div>
+
+              <div class="mt-4 pt-3 border-top border-secondary border-opacity-25">
+                <div class="d-flex align-items-center gap-2 text-secondary small">
+                  <i class="bi bi-shield-check text-success"></i>
+                  Secured by Safaricom M-Pesa
+                </div>
               </div>
             </div>
-            <button class="btn btn-success w-100 rounded-pill py-2">Pay with M-Pesa</button>
-            <div class="text-center mt-3 small text-muted">Scan QR or enter till number</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- How it Works -->
-  <section id="how" class="py-5 bg-light">
+  <!-- HOW IT WORKS -->
+  <section id="how" class="py-5">
     <div class="container py-5">
       <div class="text-center">
-        <h2 class="section-title">How Panda Pay Works</h2>
-        <p class="section-subtitle">Simple for passengers. Powerful for drivers & SACCOs.</p>
+        <h2 class="section-title">Three steps. Zero hassle.</h2>
+        <p class="section-sub">Designed for the speed of Kenyan roads — works even when the network is weak.</p>
       </div>
-      <div class="row g-4">
+
+      <div class="row g-4 position-relative">
         <div class="col-md-4">
           <div class="how-step">
-            <div class="step-number">1</div>
-            <h5>Board the Matatu</h5>
-            <p class="text-muted">Find the Panda Pay QR code or till number displayed inside the vehicle.</p>
+            <div class="how-connector d-none d-md-block"></div>
+            <div class="step-circle">1</div>
+            <h5 class="fw-bold mb-2">Find the code</h5>
+            <p class="text-secondary mb-0">Look for the Panda Pay QR or till number displayed inside the matatu.</p>
           </div>
         </div>
         <div class="col-md-4">
           <div class="how-step">
-            <div class="step-number">2</div>
-            <h5>Pay Instantly</h5>
-            <p class="text-muted">Scan the QR or enter the till number and pay using M-Pesa or Airtel Money.</p>
+            <div class="how-connector d-none d-md-block"></div>
+            <div class="step-circle">2</div>
+            <h5 class="fw-bold mb-2">Pay in seconds</h5>
+            <p class="text-secondary mb-0">Scan or enter the till number and confirm with M-Pesa or Airtel Money.</p>
           </div>
         </div>
         <div class="col-md-4">
           <div class="how-step">
-            <div class="step-number">3</div>
-            <h5>Ride Confirmed</h5>
-            <p class="text-muted">Driver sees payment instantly. You get a digital receipt via SMS.</p>
+            <div class="step-circle">3</div>
+            <h5 class="fw-bold mb-2">Ride confirmed</h5>
+            <p class="text-secondary mb-0">Driver gets instant notification. You receive an SMS receipt automatically.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Features -->
-  <section id="features" class="py-5">
+  <!-- FEATURES -->
+  <section id="features" class="py-5 bg-light">
     <div class="container py-5">
       <div class="text-center">
-        <h2 class="section-title">Built for Everyone on the Road</h2>
-        <p class="section-subtitle">Whether you're a passenger, driver, or SACCO manager — Panda Pay has you covered.</p>
+        <h2 class="section-title">Built for real Kenyan roads</h2>
+        <p class="section-sub">Everything you need for fast, transparent, and reliable cashless payments.</p>
       </div>
 
       <div class="row g-4">
         <div class="col-md-6 col-lg-3">
           <div class="feature-card">
             <div class="feature-icon"><i class="bi bi-phone"></i></div>
-            <h5>Cashless Fares</h5>
-            <p class="text-muted mb-0">Pay with M-Pesa, Airtel Money or bank cards. No more searching for change.</p>
+            <h5 class="fw-bold">Cashless Fares</h5>
+            <p class="text-secondary mb-0">Pay with M-Pesa, Airtel Money or cards. No more searching for coins.</p>
           </div>
         </div>
         <div class="col-md-6 col-lg-3">
           <div class="feature-card">
             <div class="feature-icon"><i class="bi bi-qr-code-scan"></i></div>
-            <h5>QR & Till Numbers</h5>
-            <p class="text-muted mb-0">Scan a unique QR or enter the matatu’s till number in seconds.</p>
+            <h5 class="fw-bold">QR + Till</h5>
+            <p class="text-secondary mb-0">Scan a unique QR or simply type the matatu’s till number.</p>
           </div>
         </div>
         <div class="col-md-6 col-lg-3">
           <div class="feature-card">
-            <div class="feature-icon"><i class="bi bi-graph-up"></i></div>
-            <h5>Real-time Tracking</h5>
-            <p class="text-muted mb-0">Drivers and SACCOs see every payment instantly with full transparency.</p>
+            <div class="feature-icon"><i class="bi bi-graph-up-arrow"></i></div>
+            <h5 class="fw-bold">Live Tracking</h5>
+            <p class="text-secondary mb-0">Drivers and SACCOs see every payment the moment it lands.</p>
           </div>
         </div>
         <div class="col-md-6 col-lg-3">
           <div class="feature-card">
             <div class="feature-icon"><i class="bi bi-receipt"></i></div>
-            <h5>Digital Receipts</h5>
-            <p class="text-muted mb-0">Automatic SMS receipts for every trip. Perfect for expense tracking.</p>
+            <h5 class="fw-bold">Digital Receipts</h5>
+            <p class="text-secondary mb-0">Automatic SMS receipts for every trip — perfect for records.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Payment Demo -->
+  <!-- WHO IT'S FOR -->
+  <section id="who" class="py-5">
+    <div class="container py-5">
+      <div class="text-center mb-5">
+        <h2 class="section-title">One platform. Three wins.</h2>
+        <p class="section-sub">Whether you ride, drive, or manage a SACCO — Panda Pay works for you.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="audience-card passengers">
+            <div class="fs-1 mb-3">🚌</div>
+            <h4 class="fw-bold mb-3">Passengers</h4>
+            <ul class="list-unstyled mb-0">
+              <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>No more change drama</li>
+              <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Instant digital receipt</li>
+              <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Works offline via USSD</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Trip history in the app</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="audience-card drivers">
+            <div class="fs-1 mb-3">🚕</div>
+            <h4 class="fw-bold mb-3">Drivers</h4>
+            <ul class="list-unstyled mb-0">
+              <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Instant payment alerts</li>
+              <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Zero cash handling risk</li>
+              <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Simple driver dashboard</li>
+              <li><i class="bi bi-check-circle-fill text-primary me-2"></i>End-of-day summaries</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="audience-card saccos">
+            <div class="fs-1 mb-3">📊</div>
+            <h4 class="fw-bold mb-3">SACCOs</h4>
+            <ul class="list-unstyled mb-0">
+              <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i>Full revenue transparency</li>
+              <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i>Reduced crew disputes</li>
+              <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i>Real-time fleet insights</li>
+              <li><i class="bi bi-check-circle-fill text-warning me-2"></i>Easy reconciliation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIVE DEMO -->
   <section id="demo" class="py-5 bg-light">
     <div class="container py-5">
-      <div class="row align-items-center g-5">
-        <div class="col-lg-6">
-          <h2 class="section-title text-start">Experience the Payment Flow</h2>
-          <p class="text-muted mb-4">See how easy it is to pay your fare without carrying cash. Designed for speed and reliability even in areas with weak network.</p>
-          <ul class="list-unstyled">
-            <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i> Instant M-Pesa confirmation</li>
-            <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i> Works offline via USSD fallback</li>
-            <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i> Driver dashboard updates in real time</li>
-            <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i> Full trip history for passengers</li>
-          </ul>
-        </div>
-        <div class="col-lg-6">
-          <div class="payment-demo text-center">
-            <h4 class="mb-4">Sample Matatu Payment</h4>
-            <div class="demo-phone">
-              <div class="text-start mb-3">
-                <small class="text-success">● Live</small>
-                <h5 class="mt-2">KCE 456B</h5>
-                <small class="text-muted">CBD → Westlands</small>
-              </div>
-              <div class="bg-black rounded-3 p-3 mb-3 text-start">
-                <div class="d-flex justify-content-between mb-2">
-                  <span>Route Fare</span>
-                  <strong>KSh 70</strong>
+      <div class="demo-section">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <h2 class="fw-bold mb-3" style="font-size:2.2rem;">See the payment flow</h2>
+            <p class="text-white-50 mb-4">
+              Designed for speed and reliability — even in areas with weak network coverage. USSD fallback keeps you moving.
+            </p>
+            <ul class="list-unstyled">
+              <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i> Instant M-Pesa confirmation</li>
+              <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i> Offline USSD fallback</li>
+              <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i> Driver dashboard updates live</li>
+              <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i> Full trip history for users</li>
+            </ul>
+          </div>
+          <div class="col-lg-6">
+            <div class="phone-mockup mx-auto">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <div class="d-flex justify-content-between mb-3">
+                  <div>
+                    <small class="text-success"><span class="status-dot"></span>Live</small>
+                    <h5 class="text-white mb-0 mt-1">KCE 456B</h5>
+                    <small class="text-secondary">CBD → Westlands</small>
+                  </div>
                 </div>
-                <div class="d-flex justify-content-between">
-                  <span>Status</span>
-                  <span class="text-success">Ready to Pay</span>
+                <div class="bg-black rounded-4 p-3 mb-3">
+                  <div class="d-flex justify-content-between mb-2">
+                    <span class="text-secondary">Route Fare</span>
+                    <strong class="text-white">KSh 70</strong>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <span class="text-secondary">Status</span>
+                    <span class="text-success">Ready to Pay</span>
+                  </div>
+                </div>
+                <button class="btn btn-success w-100 rounded-pill py-2 fw-semibold mb-2">Confirm & Pay</button>
+                <div class="text-center">
+                  <small class="text-secondary">Powered by M-Pesa & Panda Pay</small>
                 </div>
               </div>
-              <button class="btn btn-success w-100 rounded-pill py-2 mb-2">Confirm & Pay</button>
-              <small class="text-muted">Powered by M-Pesa & Panda Pay</small>
             </div>
           </div>
         </div>
@@ -374,45 +613,45 @@
     </div>
   </section>
 
-  <!-- Testimonials -->
+  <!-- TESTIMONIALS -->
   <section class="py-5">
     <div class="container py-5">
       <div class="text-center mb-5">
-        <h2 class="section-title">Loved by Drivers & Passengers</h2>
+        <h2 class="section-title">Loved on the road</h2>
       </div>
       <div class="row g-4">
         <div class="col-md-4">
-          <div class="testimonial-card">
+          <div class="testimonial">
             <p class="mb-4">“Since we started using Panda Pay, no more arguments about change. Payments are clean and the SACCO can see everything.”</p>
             <div class="d-flex align-items-center">
-              <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width:48px;height:48px;">JM</div>
+              <div class="avatar bg-success me-3">JM</div>
               <div>
                 <strong>James M.</strong><br>
-                <small class="text-muted">Driver, Super Metro</small>
+                <small class="text-secondary">Driver, Super Metro</small>
               </div>
             </div>
           </div>
         </div>
         <div class="col-md-4">
-          <div class="testimonial-card">
+          <div class="testimonial">
             <p class="mb-4">“I love that I can just scan and go. No more fumbling for coins when I’m late for work.”</p>
             <div class="d-flex align-items-center">
-              <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width:48px;height:48px;">AW</div>
+              <div class="avatar bg-primary me-3">AW</div>
               <div>
                 <strong>Amina W.</strong><br>
-                <small class="text-muted">Daily Commuter</small>
+                <small class="text-secondary">Daily Commuter</small>
               </div>
             </div>
           </div>
         </div>
         <div class="col-md-4">
-          <div class="testimonial-card">
+          <div class="testimonial">
             <p class="mb-4">“The transparency has reduced conflict between owners and crew. Highly recommended for every SACCO.”</p>
             <div class="d-flex align-items-center">
-              <div class="bg-warning text-dark rounded-circle d-flex align-items-center justify-content-center me-3" style="width:48px;height:48px;">PK</div>
+              <div class="avatar bg-warning text-dark me-3">PK</div>
               <div>
                 <strong>Peter K.</strong><br>
-                <small class="text-muted">SACCO Chairman</small>
+                <small class="text-secondary">SACCO Chairman</small>
               </div>
             </div>
           </div>
@@ -421,54 +660,56 @@
     </div>
   </section>
 
-  <!-- Final CTA -->
-  <section id="download" class="py-5" style="background: linear-gradient(135deg, #00C853, #009624);">
-    <div class="container py-5 text-center text-white">
-      <h2 class="display-5 fw-bold mb-3">Ready to go cashless?</h2>
-      <p class="lead mb-4">Join thousands of drivers and passengers already using Panda Pay across Nairobi and beyond.</p>
-      <div class="d-flex flex-wrap justify-content-center gap-3">
-        <a href="#" class="btn btn-light btn-lg px-4 rounded-pill">Download for Android</a>
-        <a href="#" class="btn btn-outline-light btn-lg px-4 rounded-pill">Register as Driver</a>
+  <!-- FINAL CTA -->
+  <section id="download" class="py-5">
+    <div class="container">
+      <div class="cta-section">
+        <h2 class="display-5 fw-bold mb-3">Ready to go cashless?</h2>
+        <p class="lead mb-4 opacity-90">Join thousands of drivers and passengers already using Panda Pay across Nairobi and beyond.</p>
+        <div class="d-flex flex-wrap justify-content-center gap-3">
+          <a href="#" class="btn btn-light btn-lg px-4 rounded-pill fw-semibold">Download for Android</a>
+          <a href="#" class="btn btn-outline-light btn-lg px-4 rounded-pill fw-semibold">Register as Driver</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
       <div class="row">
-        <div class="col-lg-4 mb-4">
-          <h4 class="text-white mb-3">Panda<span style="color:#00C853">Pay</span></h4>
-          <p>Making public transport payments simple, transparent and secure for every Kenyan.</p>
+        <div class="col-lg-4 mb-4 mb-lg-0">
+          <h4 class="text-white mb-3">Panda<span style="color:#00c853">Pay</span></h4>
+          <p class="mb-0">Making public transport payments simple, transparent and secure for every Kenyan.</p>
         </div>
         <div class="col-6 col-md-2 mb-4">
-          <h6 class="text-white">Product</h6>
+          <h6>Product</h6>
           <ul class="list-unstyled">
-            <li><a href="#how">How it Works</a></li>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#demo">Demo</a></li>
+            <li class="mb-2"><a href="#how">How it Works</a></li>
+            <li class="mb-2"><a href="#features">Features</a></li>
+            <li class="mb-2"><a href="#demo">Demo</a></li>
           </ul>
         </div>
         <div class="col-6 col-md-2 mb-4">
-          <h6 class="text-white">Company</h6>
+          <h6>Company</h6>
           <ul class="list-unstyled">
-            <li><a href="#">About</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Contact</a></li>
+            <li class="mb-2"><a href="#">About</a></li>
+            <li class="mb-2"><a href="#">Careers</a></li>
+            <li class="mb-2"><a href="#">Contact</a></li>
           </ul>
         </div>
         <div class="col-6 col-md-2 mb-4">
-          <h6 class="text-white">Support</h6>
+          <h6>Support</h6>
           <ul class="list-unstyled">
-            <li><a href="#">Help Center</a></li>
-            <li><a href="#">Privacy</a></li>
-            <li><a href="#">Terms</a></li>
+            <li class="mb-2"><a href="#">Help Center</a></li>
+            <li class="mb-2"><a href="#">Privacy</a></li>
+            <li class="mb-2"><a href="#">Terms</a></li>
           </ul>
         </div>
       </div>
-      <hr class="border-secondary my-4">
-      <div class="text-center text-muted small">
-        © 2025 Panda Pay. All rights reserved. Built for Kenya’s roads.
+      <hr class="border-secondary my-4 opacity-25">
+      <div class="text-center small">
+        © 2026 Panda Pay. All rights reserved. Built for Kenya’s roads.
       </div>
     </div>
   </footer>
